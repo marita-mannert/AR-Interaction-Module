@@ -30,12 +30,11 @@ public class GrabbableFactory : MonoBehaviour
        if (obj.GetComponent<Grabbable>() == null)
         {
             obj.AddComponent<Grabbable>();
-            obj.GetComponent<Grabbable>().InjectOptionalRigidbody(obj.GetComponent<Rigidbody>());
-            obj.GetComponent<Grabbable>().InjectOptionalTargetTransform(obj.GetComponent<Transform>());
+            obj.GetComponent<Grabbable>().InjectOptionalRigidbody(obj.transform.GetComponentInParent<Rigidbody>());
+            obj.GetComponent<Grabbable>().InjectOptionalTargetTransform(obj.transform.parent);
 
-           
-                obj.GetComponent<Grabbable>().InjectOptionalOneGrabTransformer(_grabFreeTransformer);
-                obj.GetComponent<Grabbable>().InjectOptionalTwoGrabTransformer(_grabFreeTransformer);
+            obj.GetComponent<Grabbable>().InjectOptionalOneGrabTransformer(_grabFreeTransformer);
+            obj.GetComponent<Grabbable>().InjectOptionalTwoGrabTransformer(_grabFreeTransformer);
            
         }
     }
@@ -48,7 +47,7 @@ public class GrabbableFactory : MonoBehaviour
 
             obj.GetComponent<HandGrabInteractable>().enabled = true;
             obj.GetComponent<HandGrabInteractable>().InjectOptionalPointableElement(obj.GetComponent<Grabbable>());
-            obj.GetComponent<HandGrabInteractable>().InjectRigidbody(obj.GetComponent<Rigidbody>());
+            obj.GetComponent<HandGrabInteractable>().InjectRigidbody(obj.transform.GetComponentInParent<Rigidbody>());
         }  
     }
 

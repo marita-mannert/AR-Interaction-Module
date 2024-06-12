@@ -26,7 +26,7 @@ public class GrabbableManager : MonoBehaviour
         {
             foreach (GameObject obj in grabbableObjects)
             {
-                grabbableFactory.SetGrabbable(obj, true);
+                SetChildrenGrabbable(obj, "HandGrabbable", true);
             }
         }
     }
@@ -37,8 +37,20 @@ public class GrabbableManager : MonoBehaviour
 
         foreach (GameObject obj in grabbableObjects)
         {
-            grabbableFactory.MakeGrabbable(obj);
-            grabbableFactory.SetGrabbable(obj, false);
+            SetChildrenGrabbable(obj, "HandGrabbable", true);
         }
     }
+
+    private void SetChildrenGrabbable(GameObject parent, string childName, bool grabbable)
+    {
+        foreach (Transform child in parent.transform)
+        {
+            if (child.name == childName)
+            {
+                grabbableFactory.MakeGrabbable(child.gameObject);
+                grabbableFactory.SetGrabbable(child.gameObject, grabbable);
+            }
+        }
+    }
+
 }
