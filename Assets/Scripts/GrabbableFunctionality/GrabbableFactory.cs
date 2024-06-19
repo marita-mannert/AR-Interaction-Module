@@ -15,6 +15,7 @@ public class GrabbableFactory : MonoBehaviour
         ConfigureGrabFreeTransformer(obj);
         AddGrabbableComponent(obj);
         AddHandGrabInteractable(obj);
+        AddGrabbableStateMonitor(obj);
     }
 
     private void AddGrabFreeTranformerComponent(GameObject obj)
@@ -76,6 +77,14 @@ public class GrabbableFactory : MonoBehaviour
         };
 
         _grabFreeTransformer.InjectOptionalScaleConstraints(newScaleConstraints);
+    }
+
+    public void AddGrabbableStateMonitor (GameObject obj)
+    {
+        if ( obj.GetComponent<GrabbableStateMonitor>() == null)
+        {
+            obj.AddComponent<GrabbableStateMonitor>();
+        }
     }
 
     public void SetGrabbable(GameObject obj, bool isGrabbable)

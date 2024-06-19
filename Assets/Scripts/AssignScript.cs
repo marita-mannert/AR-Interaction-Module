@@ -34,7 +34,7 @@ public class AssignScript : ScriptableWizard
     {
         if (addRotation)
         {
-            go.AddComponent<Rotation>();
+            //go.AddComponent<Rotation>();
         }
 
         if (addGrabFunctionality)

@@ -10,7 +10,7 @@ public class CreateChildren : MonoBehaviour
     [SerializeField]
     private string[] childNames = { "HandGrabbable", "RayInteractable" }; // Array of child names
 
-    void Start()
+    void Awake()
     {
         CreateChildrenObjects();
     }

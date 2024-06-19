@@ -19,10 +19,11 @@ public class GrabbableManager : MonoBehaviour
         MakeObjectsGrabbable();
     }
 
-    private void Update()
+    /*private void Update()
     {
+        // press G to activate Grabbable
         GameObject[] grabbableObjects = GameObject.FindGameObjectsWithTag(grabbableTag);
-        if (Input.GetKeyDown(KeyCode.G)) // Left mouse button click
+       if (Input.GetKeyDown(KeyCode.G)) // Left mouse button click
         {
             foreach (GameObject obj in grabbableObjects)
             {
@@ -30,6 +31,7 @@ public class GrabbableManager : MonoBehaviour
             }
         }
     }
+   */
 
     private void MakeObjectsGrabbable()
     {
