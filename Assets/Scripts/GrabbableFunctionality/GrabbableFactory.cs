@@ -15,7 +15,7 @@ public class GrabbableFactory : MonoBehaviour
         ConfigureGrabFreeTransformer(obj);
         AddGrabbableComponent(obj);
         AddHandGrabInteractable(obj);
-        AddGrabbableStateMonitor(obj);
+        //AddGrabbableStateMonitor(obj);
     }
 
     private void AddGrabFreeTranformerComponent(GameObject obj)

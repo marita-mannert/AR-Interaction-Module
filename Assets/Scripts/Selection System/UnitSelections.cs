@@ -6,6 +6,9 @@ public class UnitSelections : MonoBehaviour
 {
     public List<GameObject> unitlist = new List<GameObject>();
     public List<GameObject> unitSelected = new List<GameObject>();
+    public Material selectionMaterial;
+    private Material originalMaterial;
+    
 
     private static UnitSelections _instance;
     public static UnitSelections Instance { get { return _instance; } }
@@ -25,16 +28,17 @@ public class UnitSelections : MonoBehaviour
         }
     }
 
-    public void ClickSelect(GameObject untiToAdd)
+
+    public void ClickSelect(GameObject unitToAdd)
     {
        // DeselectAll();
-        if (!unitSelected.Contains(untiToAdd))
-        {
-            unitSelected.Add(untiToAdd);
+        if (!unitSelected.Contains(unitToAdd))
+        {  
+            unitSelected.Add(unitToAdd);
         }
         else
         {
-            unitSelected.Remove(untiToAdd);
+            unitSelected.Remove(unitToAdd);
         }
     }
 
